@@ -22,13 +22,18 @@ export default {
       { hid: 'description', name: 'description', content: process.env.npm_package_description || '' }
     ],
     link: [
-      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
+      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
+      { rel: 'stylesheet', href: '/font.css'}
+    ],
+    script: [
+      { href: '//fast.wistia.net/assets/external/iframe-api-v1.js', async: true }
     ]
   },
   /*
   ** Global CSS
   */
   css: [
+      '@/assets/scss/main.scss'
   ],
   /*
   ** Plugins to load before mounting the App
@@ -53,12 +58,23 @@ export default {
   */
   modules: [
     // Doc: https://bootstrap-vue.js.org
-    'bootstrap-vue/nuxt'
+    'bootstrap-vue/nuxt',
+    '@nuxtjs/axios',
+    '@nuxtjs/style-resources'
   ],
   /*
   ** Build configuration
   ** See https://nuxtjs.org/api/configuration-build/
   */
   build: {
+  },
+
+  bootstrapVue: {
+    bootstrapCSS: false,
+    bootstrapVueCSS: false
+  },
+
+  styleResources: {
+    scss: '@/assets/scss/_variables.scss'
   }
 }
